@@ -1,0 +1,40 @@
+ <!-- 效果4 begin -->
+     <!--<i></i> -->
+      <view class="stamp stamp04" wx:for="{{vou}}">
+       <view class="">
+          <view class="par">
+            <p>{{item.title}}</p>
+            <sub class="sign">￥</sub><span>{{item.amount}}</span>
+            <sub>优惠券</sub>
+            <p>订单满 {{item.full_money}} 可用</p>
+          </view>
+          <view class="copy">副券
+            <p>{{item.start_time}}</p>
+            <p>{{item.end_time}}</p>
+            <view bindtap='getvou' data-vid="{{item.id}}">领 取</view>
+          </view>
+      </view>
+        <!--<view class="xian"></view>-->
+    </view>
+<!-- 效果4 end -->
+ 
+<view class="cx" bindtap="aa" hidden="{{nullHouse}}">
+
+</view>
+
+<view class="myToast" hidden="{{nullHouse}}">
+      
+    <view class="baiye"> 
+          <view class="ren">手机认证</view>
+          <view class="shouji">
+            <input placeholder-class='input-placeholder' class="ks" type="number" name="linkTel" bindblur="blurTel" value="{{linkTel}}" placeholder="请输入你的手机号码" maxlength="11" />
+            <button class="but" bindtap="setVerify">{{VerifyCode}}</button>
+        <view class="zc" hidden="{{lol}}">
+        </view>
+      </view>
+    <input placeholder-class='input-placeholder' bindblur="blurCode" class="ii" placeholder="请输入收到的验证码" name="codes" value="" />
+    </view>
+    <view class="ling" bindtap="checkcode" data-vid="{{vouId}}">领取</view>
+</view>     
+
+

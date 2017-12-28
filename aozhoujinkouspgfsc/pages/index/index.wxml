@@ -1,0 +1,101 @@
+<!--index.wxml-->
+<view class="page_input" bindtap="suo">
+ <!-- <icon type="search" size="20" />  -->
+  <input type="text" placeholder="搜索商品" />
+</view>
+<view class="page">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height:400rpx;">
+
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item.photo}}" class="slide-image" width="100%" height="180" bindtap="advtap" data-type="{{item.type}}" data-action="{{item.action}}" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+
+  <!--分类-->
+  <view class="df nav">
+    <view wx:for="{{kb}}" class="df_1" data-ptype="{{item.ptype}}" data-text="{{item.name}}" bindtap="other">
+      <image src="{{item.photo}}"></image>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+
+  <view class="df nav">
+    <view wx:for="{{list}}" class="df_1" data-ptype="{{item.ptype}}" data-title="{{item.name}}" data-cid="{{item.ptype}}" bindtap="list">
+      <image src="{{item.photo}}"></image>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+
+<!--我是一条分割线-->
+  <view class="xian"></view>
+  <!--推荐内容开始-->
+  <!-- <view wx:for="{{productData}}">
+  <view class="name">
+    <i>{{item[0].title}}</i>
+  </view> -->
+
+  <!--六个图片-->
+  <!-- <scroll-view class="center" scroll-x="true"> -->
+
+
+  <!-- <view class="productData"  wx:for="{{item}}" wx:for-item="item2">
+    <view class="tie" style="background:red;" wx:if="{{item2.pro_type==2}}">团购</view>
+    <view class="tie" style="background:orange;" wx:else>推荐</view>
+    <image  bindtap="liu" src="{{item2.photo_x}}" data-id="{{item2.id}}"></image>
+    <view><text>111</text></view>
+  </view>
+  
+</scroll-view>
+</view> -->
+<view wx:for="{{productData}}">
+
+   <view class="name"><i>{{item[0].title}}</i></view>
+
+  <view class="c">
+  
+    <view class="c_a" wx:for="{{item}}" wx:for-item="item2" wx:for-index="id"  bindtap="liu" data-id="{{item2.id}}">
+   
+        <view class="c_aa">
+         <view class="tie" style="background:red;" wx:if="{{item2.pro_type==2}}">团购</view>
+    <view class="tie" style="background:orange;" wx:else>推荐</view>
+          <image src="{{item2.photo_x}}" ></image>
+          <view class="c_b">
+            {{item2.name}}
+          </view>
+          <view class="c_c">
+            <text>￥{{item2.price_yh}}</text>
+            <text class="c_yuan">￥{{item2.price}}</text>
+          </view>
+          <view class="c_d">
+            <text wx:if="{{item.is_show==1}}">新品上市</text>
+            <text wx:elif="{{item.is_hot==1}}">热销产品</text>
+            <text wx:else>店主推荐</text>
+            <text class="">销量：{{item2.shiyong}}</text>
+          </view>
+        </view>
+    </view>
+    <view class="huanhang"></view>
+  </view>
+  
+</view>
+
+  <!--我是一条分割线-->
+  <!-- <view class="xian"></view> -->
+  <!--推荐内容开始-->
+  <!-- <view class="name">
+    <i> 店铺街</i>
+    <view class="yo" bindtap='jj'>
+      <image class="yo_img" src="../../images/yo.png"></image>
+    </view>
+  </view> -->
+
+  <!--横滑动-->
+  <!-- <scroll-view scroll-x="true" class="sc">
+    <view class="miu" wx:for="{{shop}}" data-id="{{item.id}}" bindtap='shopDetails'>
+      <image src="{{item.logo}}" class="ie"></image>
+    </view>
+  </scroll-view> -->
+</view>

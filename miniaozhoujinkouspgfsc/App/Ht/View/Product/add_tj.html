@@ -1,0 +1,85 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台管理</title>
+<link href="__PUBLIC__/ht/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/ht/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/ht/js/action.js"></script>
+<script type="text/javascript" src="__PUBLIC__/ht/js/mydate.js"></script>
+<style>
+.dx1{float:left; margin-left: 17px; margin-bottom:10px; }
+.dx2{color:#090; font-size:16px;  border-bottom:1px solid #CCC; width:100% !important; padding-bottom:8px;}
+.dx3{width:120px; margin:5px auto; border-radius: 2px; border: 1px solid #b9c9d6; display:block;}
+.dx4{border-bottom:1px solid #eee; padding-top:5px; width:100%;}
+.img-err {
+    position: relative;
+    top: 2px;
+    left: 82%;
+    color: white;
+    font-size: 20px;
+    border-radius: 16px;
+    background: #c00;
+    height: 21px;
+    width: 21px;
+    text-align: center;
+    line-height: 20px;
+    cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="aaa_pts_show_1">【 产品栏目管理 】</div>
+
+<div class="aaa_pts_show_2">
+    <div>
+      <div class="aaa_pts_4"><a href="{:U('Product/pro_tj')}">产品推荐管理</a></div>
+       <div class="aaa_pts_4"><a href="{:U('Product/add_tj')}">添加产品栏目</a></div>
+    </div>
+    <div class="aaa_pts_3">
+		<form action="{:U('save_tj')}" method="post" onsubmit="return ac_from();" enctype="multipart/form-data">
+		<ul class="aaa_pts_5">
+        <li class="product"><div class="d1 dx2">产品栏目信息</div></li>
+         <li class="product">
+            <div class="d1">栏目名称:</div>
+            <div>
+              <input class="inp_1" name="name" id="name" value="{$tj.name}"/>
+            </div>
+         </li>
+         
+         <li>
+            <div class="d1">产品:</div>
+            <div>
+              <input class="inp_1" id="proid" name="proid" value="<?php echo $tj['pid']; ?>" readonly="readonly"/>
+              <input type="button" value="选择商品" class="aaa_pts_web_3" style="margin-left:15px;" onclick="win_open('{:U('get_pro')}',1280,800)">
+            </div>
+         </li>
+        <li><input type="submit" name="submit" value="提交" class="aaa_pts_web_3" border="0" id="aaa_pts_web_s">
+          <input type="hidden" name="id" id='id' value="{$tj.id}">
+        </li>
+      </ul>
+      </form>
+         
+    </div>
+    
+</div>
+<script type="text/javascript" src="__PUBLIC__/ht/js/product.js"></script>
+<script>
+function ac_from(){
+
+  var name = document.getElementById("name").value;
+
+
+  if(name == null) {
+    alert('请输入产品栏目名称！');
+    return false;
+  }
+    
+  
+}
+
+</script>
+</body>
+</html>

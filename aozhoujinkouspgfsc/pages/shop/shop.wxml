@@ -1,0 +1,12 @@
+<view class="shop" wx:for="{{shopList}}" wx:key="id" bindtap="shop" data-id="{{item.id}}">
+  <view class="fei">
+    <image src="{{item.logo}}" wx:if="{{item.logo}}"></image>
+    <image src="../../images/nopic.png" wx:else></image>
+  </view>
+  <view class="gongsi">
+    <view style="padding:20rpx 0;font-size:32rpx;">{{item.name}}</view>
+    <view style="color:gray;">{{item.intro}}</view>
+  </view>
+
+</view>
+<view class="clear mt10" bindtap="getMore">点击查看更多</view>

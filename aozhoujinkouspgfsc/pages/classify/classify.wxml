@@ -1,0 +1,86 @@
+<!--头部-->
+<view class="cont  {{tab=='1'? 'ac' : ''}}">
+  <view class="classname" style="height:80rpx;"></view>
+  <view class="tab-left" bindtap="tabFun">
+
+    <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="tab-hd01" data-id="0">
+      {{dequ}}
+    </view>
+    <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="tab-hd02" data-id="1">
+      {{huxing}}</view>
+
+    <view class="{{tabArr.curHdIndex=='2'? 'active' : ''}}" id="tab-hd03" data-id="2">
+      {{paxing}}</view>
+
+  </view>
+
+  <view class="bei" wx:if="{{no0}}" bindtap="kk">
+    <view class="bei_cont">
+      <view class="bei_cont1" data-id="0" data-txt="全部" bindtap="filter0">全部
+      </view>
+      <view class="bei_cont1" wx:for='{{catList}}' data-id="{{item.id}}" data-txt="{{item.name}}" bindtap="filter0">{{item.name}}
+      </view>
+    </view>
+  </view>
+
+  <view class="bei" wx:if="{{no1}}" bindtap="kk">
+    <view class="bei_cont">
+    <view class="bei_cont1" data-id="0" data-txt="不限" bindtap="filter1">不限
+      </view>
+      <view class="bei_cont1" wx:for='{{prices}}' data-id="{{item.ptype}}" data-txt="{{item.name}}" bindtap="filter1">{{item.name}}
+      </view>
+    </view>
+  </view>
+
+  <view class="bei" wx:if="{{no2}}" bindtap="kk">
+    <view class="bei_cont">
+    <view class="bei_cont1" data-id="0" data-txt="不限" bindtap="filter2">不限
+      </view>
+      <view class="bei_cont1" wx:for='{{times}}' data-id="{{item.ptype}}" data-txt="{{item.name}}" bindtap="filter2">{{item.name}}
+      </view>
+    </view>
+  </view>
+
+
+
+  <view class="tab-right">
+    <!--1-->
+    <view class="right-item ">
+
+      <view class="boxx">
+        <view class="list">
+          <block wx:for="{{proData}}" wx:key="*this" data-id="{{item.id}}">
+            <view class="ban">
+              <navigator url="../product/detail?productId={{item.id}}" class="cover flex-wrp">
+                <image class="banner" src="{{item.photo_x}}" ></image>
+                <view class="act-item ellipsi">
+                  <text class="type">{{item.name}}</text>
+                </view>
+
+                <view class="act-item ellipsis">
+                  <text style="color:red">
+                    <text style="font-size:28rpx">采购价:￥</text> {{item.pifa_price}}</text>
+                </view>
+                <view class="act-item ellipsis">
+                  <text style="color:#999999;font-size:25rpx">已有{{item.shiyong}}人采购</text>
+                </view>
+              </navigator>
+            </view>
+            <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}">fsaffffff</view>
+            <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}"></view>
+          </block>
+
+        </view>
+
+
+
+
+      </view>
+      <view class="clear mt10" bindtap="getMore">点击查看更多</view>
+
+
+    </view>
+
+  </view>
+
+</view>

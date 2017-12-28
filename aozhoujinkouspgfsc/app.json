@@ -1,0 +1,68 @@
+{
+  "pages": [
+
+    "pages/index/index",
+    "pages/slide/mei",
+    "pages/ritual/ritual",
+    "pages/cart/cart",
+    "pages/personal/personal",
+    "pages/user/user",
+  "pages/product/detail",
+    "pages/shop_store/shop_store",
+    "pages/user/shoucang",
+    "pages/user/dingdan",
+    "pages/user/tuihuo",
+    "pages/order/pay",
+    "pages/order/detail",
+    "pages/order/downline",
+    "pages/listdetail/listdetail",
+    "pages/address/address",
+    "pages/address/user-address/user-address",
+    "pages/category/index",
+    "pages/prolist/prolist",
+    "pages/shop/shop",
+    "pages/synopsis/synopsis",
+    "pages/classify/classify",
+    "pages/logs/logs",
+    "pages/search/search",
+    "pages/screen/screen"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#e51c23",
+    "navigationBarTitleText": "澳洲进口食品官方商城",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#6e6d6b",
+    "selectedColor": "#dd2727",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/souu.png",
+        "selectedIconPath": "images/shou.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/category/index",
+        "iconPath": "images/fei.png",
+        "selectedIconPath": "images/feii.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "iconPath": "images/ggg.png",
+        "selectedIconPath": "images/gi.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "images/hui.png",
+        "selectedIconPath": "images/huiyuan.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

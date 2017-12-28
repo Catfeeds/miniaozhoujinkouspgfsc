@@ -1,0 +1,103 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台管理</title>
+<link href="__PUBLIC__/ht/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/ht/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/ht/js/action.js"></script>
+<style>
+.dx1{float:left; margin-left: 17px; margin-bottom:10px; }
+.dx2{color:#090; font-size:16px;  border-bottom:1px solid #CCC; width:100% !important; padding-bottom:8px;}
+.dx3{width:120px; margin:5px auto; border-radius: 2px; border: 1px solid #b9c9d6; display:block;}
+.dx4{border-bottom:1px solid #eee; padding-top:5px; width:100%;}
+.img-err {
+    position: relative;
+    top: 2px;
+    left: 82%;
+    color: white;
+    font-size: 20px;
+    border-radius: 16px;
+    background: #c00;
+    height: 21px;
+    width: 21px;
+    text-align: center;
+    line-height: 20px;
+    cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="aaa_pts_show_1">【 电子券管理 】</div>
+
+<div class="aaa_pts_show_2">
+    <div>
+      <div class="aaa_pts_4"><a href="{:U('index')}">全部电子券</a></div>
+       <div class="aaa_pts_4"><a href="{:U('add')}">添加电子券</a></div>
+    </div>
+    <div class="aaa_pts_3">
+		<form action="{:U('save')}" method="post" onsubmit="return ac_from();" enctype="multipart/form-data">
+		<ul class="aaa_pts_5">
+        <li class="product"><div class="d1 dx2">电子券信息</div></li>
+         <li class="product">
+            <div class="d1">电子券名称:</div>
+            <div>
+              <input class="inp_1" name="title" id="title" value=""/>
+            </div>
+         </li>
+         <li>
+            <div class="d1">订单满赠:</div>
+            <div>
+              <input class="inp_1 inp_6" name="oprice" id="oprice" value="" />
+              <span style="color:red;margin-left:5px;">&nbsp;* 会员订单总额需要达到的最低限制，满足条件后系统自动赠送</span>
+            </div>
+         </li>
+         <li>
+            <div class="d1">生成数量:</div>
+            <div>
+              <input class="inp_1 inp_6" name="count" id="count" value="" />
+              <span style="color:red;margin-left:5px;">&nbsp;* 系统会生成对应数量的认证码</span>
+            </div>
+         </li>
+         <li>
+            <div class="d1">指定体验店:</div>
+            <div>
+              <input class="inp_1" id="partner" value="" disabled="disabled"/>
+              <input type="hidden" name="shop_id" id="shop_id" value=""/>
+              <input type="button" value="选择店铺" class="aaa_pts_web_3" style="margin-left:15px;" onclick="win_open('{:U('get_exshop')}?type=xz',1024,768)">
+            </div>
+         </li>
+        <li><input type="submit" name="submit" value="生成认证码" class="aaa_pts_web_3" border="0" id="aaa_pts_web_s">
+          <input type="hidden" name="id" id='id' value="{$voucher.id}">
+        </li>
+      </ul>
+      </form>
+         
+    </div>
+    
+</div>
+<script type="text/javascript" src="__PUBLIC__/ht/js/product.js"></script>
+<script>
+function ac_from(){
+
+  var oprice = document.getElementById("oprice").value;
+  var count=document.getElementById("count").value;
+
+  if(/^\d+$/.test(count)==false) {
+    alert('请输入数字格式的数量！');
+    return false;
+  }
+
+  var fix_amountTest=/^(([1-9]\d*)|\d)(\.\d{1,2})?$/;
+    if(fix_amountTest.test(oprice)==false){
+      alert("请输入有效格式的订单满赠金额！");
+      return false;
+    }
+  
+}
+
+</script>
+</body>
+</html>
